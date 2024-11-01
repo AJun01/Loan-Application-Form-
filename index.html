@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2 {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+    .form-section {
+      padding: 10px;
+    }
+    .section-title {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      padding: 10px;
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 1.3em;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"], [type="email"], [type="number"], select, input[type="date"] {
+      border: none;
+      border-bottom: 2px solid #000;
+      outline: none;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    td {
+      padding: 8px;
+      vertical-align: top;
+      box-sizing: border-box;
+    }
+    .phone-input {
+      width: calc(33.33% - 10px);
+      text-align: center;
+      display: inline-block;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .phone-divider {
+      text-align: center;
+      display: inline-block;
+    }
+    .ext-input, .short-input {
+      width: 50px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .checkbox-label input {
+      margin-right: 5px;
+    }
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+    }
+    .description {
+      font-style: italic;
+      margin-top: 10px;
+      display: block;
+    }
+    .currency {
+      display: inline-block;
+      text-align: right;
+      padding: 10px;
+      width: 100%;
+    }
+    .total {
+      text-align: right;
+      padding-top: 10px;
+    }
+    .total input {
+      width: 50%;
+      text-align: right;
+      margin-left: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Uniform Residential Loan Application</h1>
+  <div><strong>Verify and complete the information on this application.</strong> If you are applying for this loan with others, each additional Borrower must provide
+    information as directed by your Lender.</div>
+  
+  <div class="form-section">
+    <h2 class="section-title">Section 1: Borrower Information</h2>
+
+    <table>
+      <tr>
+        <td>
+          <label for="name">Name (First, Middle, Last, Suffix):</label>
+          <input type="text" id="name" name="name">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="alt-name">Alternate Names:</label>
+          <input type="text" id="alt-name" name="alt-name">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="ssn">Social Security Number:</label>
+          <input type="text" id="ssn" name="ssn">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="citizenship">Citizenship:</label>
+          <select id="citizenship" name="citizenship">
+            <option value="us-citizen">U.S. Citizen</option>
+            <option value="permanent-resident">Permanent Resident Alien</option>
+            <option value="non-permanent-resident">Non-Permanent Resident Alien</option>
+          </select>
+        </td>
+      </tr>
+    </table><br>
+
+    <table>
+      <tr>
+        <td>
+          <label>Type of Credits</label>
+          <input type="radio" id="indi" name="toc" value="indi"> I am applying for individual credit.<br>
+          <input type="radio" id="joint" name="toc" value="joint"> I am applying for joint credit. Total Number of Borrowers: <input type="number"><br>
+          Each Borrower intends to apply for joint credit. Your initials: <input type="text">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>List Name(s) of Other Borrower(s) Applying for this Loan</label>
+          <input type="text">
+        </td>
+      </tr>
+    </table><br>
+
+    <table>
+      <tr>
+        <td>
+          <label>Marital Status:</label><br>
+          <input type="radio" id="married" name="marital-status" value="married"> Married<br>
+          <input type="radio" id="separated" name="marital-status" value="separated"> Separated<br>
+          <input type="radio" id="unmarried" name="marital-status" value="unmarried"> Unmarried<br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Dependents:</label><br>
+          <label for="dependents">Number:</label>
+          <input type="number" id="dependents" name="dependents"><br>
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age">
+        </td>
+      </tr>
+    </table>
+    <span class="description">(Single, Divorced, Widowed, Civil Union, Domestic Partnership, Registered Reciprocal Beneficiary Relationship)</span>
+
+    <table>
+        <tr>
+          <td>
+            <label for="home-phone">Home Phone</label><br>
+            <input type="text" id="home-phone" class="phone-input" maxlength="14" placeholder="(XXX) XXX-XXXX">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="cell-phone">Cell Phone</label><br>
+            <input type="text" id="cell-phone" class="phone-input" maxlength="14" placeholder="(XXX) XXX-XXXX">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="work-phone">Work Phone</label><br>
+            <input type="text" id="work-phone" class="phone-input" maxlength="14" placeholder="(XXX) XXX-XXXX">
+            <label for="work-ext" style="margin-left: 10px;">Ext.</label>
+            <input type="text" id="work-ext" class="ext-input" maxlength="5" placeholder="Ext.">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" class="ocu-input" placeholder="you@example.com">
+          </td>
+        </tr>
+      </table>
+
+  </div>
+
+  <table style="border: 2px solid black;">
+    <tr>
+      <td colspan="3"><label for="street">Address</label><br>
+        <input type="text" id="street" name="street" placeholder="Street">
+      </td>
+    </tr>
+    <tr>
+      <td><label for="city">City</label><br>
+        <input type="text" id="city" name="city" placeholder="City">
+      </td>
+      <td><label for="state">State</label><br>
+        <input type="text" id="state" name="state" class="short-input" placeholder="State">
+      </td>
+      <td><label for="zip">ZIP</label><br>
+        <input type="text" id="zip" name="zip" class="short-input" placeholder="ZIP">
+      </td>
+    </tr>
+    <tr>
+      <td><label for="unit">Unit #</label><br>
+        <input type="text" id="unit" name="unit" class="short-input" placeholder="Unit">
+      </td>
+      <td><label for="country">Country</label><br>
+        <input type="text" id="country" name="country" placeholder="Country">
+      </td>
+      <td>
+        <label>How Long at Current Address?</label><br>
+        <input type="number" name="years" class="short-input" placeholder="Years"> Years
+        <input type="number" name="months" class="short-input" placeholder="Months"> Months
+      </td>
+    </tr>
+  </table><br>
+  
+  <table style="border: 2px solid black;">
+    <tr>
+      <td colspan="3"><label for="former-street">Former Address</label><input type="checkbox"> Do not apply<br>
+        <input type="text" id="former-street" name="former-street" placeholder="Former Street">
+      </td>
+    </tr>
+    <tr>
+      <td><label for="former-city">Former City</label><br>
+        <input type="text" id="former-city" name="former-city" placeholder="City">
+      </td>
+      <td><label for="former-state">State</label><br>
+        <input type="text" id="former-state" name="former-state" class="short-input" placeholder="State">
+      </td>
+      <td><label for="former-zip">ZIP</label><br>
+        <input type="text" id="former-zip" name="former-zip" class="short-input" placeholder="ZIP">
+      </td>
+    </tr>
+    <tr>
+      <td><label for="former-unit">Unit #</label><br>
+        <input type="text" id="former-unit" name="former-unit" class="short-input" placeholder="Unit">
+      </td>
+      <td><label for="former-country">Country</label><br>
+        <input type="text" id="former-country" name="former-country" placeholder="Country">
+      </td>
+      <td>
+        <label>How Long at Former Address?</label><br>
+        <input type="number" name="former-years" class="short-input" placeholder="Years"> Years
+        <input type="number" name="former-months" class="short-input" placeholder="Months"> Months
+      </td>
+    </tr>
+  </table><br>
+
+  <table style="border: 2px solid black;">
+    <tr>
+      <td colspan="3"><label for="mail-street">Mail Address</label><br>
+        <input type="text" id="mail-street" name="mail-street" placeholder="Mail Street">
+      </td>
+    </tr>
+    <tr>
+      <td><label for="mail-city">City</label><br>
+        <input type="text" id="mail-city" name="mail-city" placeholder="City">
+      </td>
+      <td><label for="mail-state">State</label><br>
+        <input type="text" id="mail-state" name="mail-state" class="short-input" placeholder="State">
+      </td>
+      <td><label for="mail-zip">ZIP</label><br>
+        <input type="text" id="mail-zip" name="mail-zip" class="short-input" placeholder="ZIP">
+      </td>
+    </tr>
+    <tr>
+      <td><label for="mail-unit">Unit #</label><br>
+        <input type="text" id="mail-unit" name="mail-unit" class="short-input" placeholder="Unit">
+      </td>
+      <td colspan="2"><label for="mail-country">Country</label><br>
+        <input type="text" id="mail-country" name="mail-country" placeholder="Country">
+      </td>
+    </tr>
+  </table><br>
+
+  <div class="form-section">
+    <h2 class="section-title">Section 2: Employment/Income Information</h2>
+    <table>
+      <tr>
+        <td><label for="employer-name">Employer or Business Name</label><br>
+          <input type="text" id="employer-name" name="employer-name" placeholder="Employer Name">
+        </td>
+        <td><label for="employer-phone">Phone</label><br>
+          <input type="text" id="employer-phone" name="employer-phone" placeholder="( ) -">
+        </td>
+      </tr>
+      <tr>
+        <td><label for="employer-street">Street</label><br>
+          <input type="text" id="employer-street" name="employer-street" placeholder="Street Address">
+        </td>
+        <td><label for="employer-unit">Unit #</label><br>
+          <input type="text" id="employer-unit" name="employer-unit" placeholder="Unit">
+        </td>
+      </tr>
+      <tr>
+        <td><label for="employer-city">City</label><br>
+          <input type="text" id="employer-city" name="employer-city" placeholder="City">
+        </td>
+        <td><label for="employer-state">State</label><br>
+          <input type="text" id="employer-state" name="employer-state" class="short-input" placeholder="State">
+        </td>
+      </tr>
+      <tr>
+        <td><label for="employer-zip">ZIP</label><br>
+          <input type="text" id="employer-zip" name="employer-zip" class="short-input" placeholder="ZIP">
+        </td>
+        <td><label for="employer-country">Country</label><br>
+          <input type="text" id="employer-country" name="employer-country" placeholder="Country">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><label for="position">Position or Title</label><br>
+          <input type="text" id="position" name="position" placeholder="Position or Title">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><label for="start-date">Start Date (mm/dd/yyyy)</label><br>
+          <input type="date" id="start-date" name="start-date">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <label>How long in this line of work?</label><br>
+          <input type="number" name="years-in-work" class="short-input" placeholder="Years"> Years
+          <input type="number" name="months-in-work" class="short-input" placeholder="Months"> Months
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <label><strong>Check if you are the Business Owner or Self-Employed:</strong></label><br>
+          <label class="checkbox-label">
+            <input type="checkbox" name="ownership-share-less">
+            I have an ownership share of less than 25%.
+          </label><br>
+          <label class="checkbox-label">
+            <input type="checkbox" name="ownership-share-more">
+            I have an ownership share of 25% or more.
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <label for="monthly-income">Monthly Income (or Loss)</label><br>
+          <span>$</span><input type="text" id="monthly-income" name="monthly-income" style="width: 80px;">
+        </td>
+        <td></td> 
+      </tr>
+    </table>
+  </div>
+
+    <table>
+      <tr>
+        <td><label>Base</label></td>
+        <td class="currency">$</td>
+        <td><input type="text" name="base-income"></td>
+        <td>/month</td>
+      </tr>
+      <tr>
+        <td><label>Overtime</label></td>
+        <td class="currency">$</td>
+        <td><input type="text" name="overtime-income"></td>
+        <td>/month</td>
+      </tr>
+      <tr>
+        <td><label>Bonus</label></td>
+        <td class="currency">$</td>
+        <td><input type="text" name="bonus-income"></td>
+        <td>/month</td>
+      </tr>
+      <tr>
+        <td><label>Commission</label></td>
+        <td class="currency">$</td>
+        <td><input type="text" name="commission-income"></td>
+        <td>/month</td>
+      </tr>
+      <tr>
+        <td><label>Military Entitlements</label></td>
+        <td class="currency">$</td>
+        <td><input type="text" name="military-entitlements"></td>
+        <td>/month</td>
+      </tr>
+      <tr>
+        <td><label>Other</label></td>
+        <td class="currency">$</td>
+        <td><input type="text" name="other-income"></td>
+        <td>/month</td>
+      </tr>
+      <tr>
+        <td class="total"><strong>TOTAL</strong></td>
+        <td class="currency"><strong>$</strong></td>
+        <td><input type="text" name="total-income" value="0.00" readonly></td>
+        <td><strong>/month</strong></td>
+      </tr>
+    </table>
+
+</body>
+</html>
