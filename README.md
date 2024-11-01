@@ -44,7 +44,7 @@ To adjust styles or layout, edit the `<style>` section in the `<head>` of `index
 
 ## Preview
 
-![Loan Application Form Preview](assets/preview.jpg)
+![Preview](assets/preview.jpg)
 
 ## License
 
